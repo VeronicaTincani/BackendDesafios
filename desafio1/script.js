@@ -3,7 +3,7 @@ class Usuario{
     this.nombre = nombre
     this.apellido = apellido
     this.libros = []
-    this.mascotas = ["perro", "gato"]
+    this.mascotas = []
    }
 
 
@@ -12,12 +12,12 @@ getFullName=()=>{
 }
 
 
-addMascota=() => {
-return this.mascotas.push('gato');
+addMascota=(name) => {
+return this.mascotas.push(name);
 }
 
 countMascotas =() => {
-console.log(`${this.nombre} tiene ${this.mascotas.lenght} mascotas`);
+return this.mascotas;
 }
 
 addBook(nombre, autor) {
@@ -35,12 +35,14 @@ return this.libros.map(libro=>libro.nombre);
 
 const Usuario1 = new Usuario("Lola", "Moran");
 
-const Name = Usuario1.getFullName;
+const Name = Usuario1.getFullName();
 
-const mascota = console.log(Usuario1.countMascotas());
+const Mascotas = Usuario1.countMascotas();
 Usuario1.addMascota("Michu");
+Usuario1.addMascota("Koda");
+console.log(`Lola tiene ${Mascotas.length} gatos`)
 Usuario1.addBook("Lolita", "Vladimir Navokov");
 Usuario1.addBook("Principito", "Antoine de Saint-Exupéry");
+const TitleBooks = Usuario1.getBookNames();
+console.log(`Los titulos de los libros son ` + (TitleBooks));
 
-const TitleBooks =Usuario1.getBookNames();
-console.log(TitleBooks())
